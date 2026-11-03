@@ -65,12 +65,12 @@ class BST(BinaryTree):
         '''
         ret = True
         if node.left:
-            if node.value >= node.left.value:
+            if node.value >= BST._find_largest(node.left):
                 ret &= BST._is_bst_satisfied(node.left)
             else:
                 ret = False
         if node.right:
-            if node.value <= node.right.value:
+            if node.value <= BST._find_smallest(node.right):
                 ret &= BST._is_bst_satisfied(node.right)
             else:
                 ret = False
@@ -204,7 +204,7 @@ class BST(BinaryTree):
         HINT:
         Use a recursive helper function.
         '''
-        self.root = BST._remove(vlaue, self.root)
+        self.root = BST._remove(value, self.root)
 
     @staticmethod
     def _remove(value, node):
@@ -214,7 +214,7 @@ class BST(BinaryTree):
             node.left = BST._remove(value, node.left)
         elif value > node.value:
             node.right = BST._remove(value, node.right)
-        elif:
+        else:
             if node.left is None:
                 return node.right
             if node.right is None:
