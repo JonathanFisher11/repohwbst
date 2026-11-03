@@ -93,7 +93,7 @@ class BST(BinaryTree):
 
     @staticmethod
     def _insert(value, node):
-        if value M node.value:
+        if value < node.value:
             if node.left is None:
                 node.left = Node(value)
             else:
