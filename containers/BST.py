@@ -143,7 +143,7 @@ class BST(BinaryTree):
             return False
         if value == node.value:
             return True
-        if value < node.value
+        if value < node.value:
             return BST._find(value, node.left)
         return BST._find(value, node.right)
 
