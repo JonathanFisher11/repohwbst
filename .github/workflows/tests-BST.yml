@@ -10,6 +10,7 @@ jobs:
       matrix:
         python: [3.14]
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{matrix.python}}
@@ -26,6 +27,6 @@ jobs:
           flake8 containers/BST.py --ignore=E501
       - name: Run tests
         run: |
-          python -m pytest tests/test_BST.py
+          python -u -m pytest -o faulthandler_timeout=30 -v -x tests/test_BST.py
 
 
