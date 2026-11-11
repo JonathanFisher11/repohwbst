@@ -69,9 +69,11 @@ class AVLTree(BST):
         The textbook's class hierarchy for their AVL tree code is fairly different from our class hierarchy,
         however, so you will have to adapt their code.
         '''
-        new_root = node.right
-        node.right = new_root.left
-        new_root.left = node
+        new_root = Node(node.right.value)
+        new_root.right = node.right.right
+        new_root.left = Node(node.value)
+        new_root.left.left = node.left
+        new_root.left.right = node.right.left
         return new_root
 
     @staticmethod
@@ -85,9 +87,11 @@ class AVLTree(BST):
         The textbook's class hierarchy for their AVL tree code is fairly different from our class hierarchy,
         however, so you will have to adapt their code.
         '''
-        new_root = node.left
-        node.left = new_root.right
-        new_root.right = node
+        new_root = Node(node.left.value)
+        new_root.left = node.left.left
+        new_root.right = Node(node.value)
+        new_root.right.right = node.right
+        new_root.right.left = node.left.right
         return new_root
 
     def insert(self, value):
