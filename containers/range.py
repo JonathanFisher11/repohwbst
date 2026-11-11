@@ -38,7 +38,7 @@ def range(a, b=None, c=None):
     if step > 0:
         while i < stop:
             yield i
-            i += stop
+            i += step
     else:
         while i > stop:
             yield i
