@@ -70,7 +70,7 @@ class AVLTree(BST):
         however, so you will have to adapt their code.
         '''
         new_root = node.right
-        node.left = new_root.left
+        node.right = new_root.left
         new_root.left = node
         return new_root
 
