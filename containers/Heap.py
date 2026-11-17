@@ -190,5 +190,5 @@ class Heap(BinaryTree):
         else:
             smaller = node.right
         if smaller.value < node.value:
-            node.value, smaller/.value = smaller.value, node.value
+            node.value, smaller.value = smaller.value, node.value
             Heap._trickle(smaller)
